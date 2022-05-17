@@ -16,7 +16,7 @@ function LSB() {
         let dipreciation_value_per_one_year = SLB_per_one_year(cost, scrp_value, useful_life);
         document.getElementById('answer').innerHTML = "<p>Depreciation Value ( LKR ) : " + dipreciation_value_per_one_year * useful_life;
         let RBB_rate = RBB_calculate_rate(cost, scrp_value, useful_life);
-        let answer_description = "<p>Cost : " + cost + "</p><p>Scrap Value : " + scrp_value + "</p><p>Useful Life : " + useful_life + "</p><p>Rate = ( 1 - " + scrp_value + " &#8730;" + " " + scrp_value + " / " + cost + " ) x 100 = " + RBB_rate.toFixed(2) + "%</p>";
+        let answer_description = "<p>Cost : " + cost + "</p><p>Scrap Value : " + scrp_value + "</p><p>Useful Life : " + useful_life + "</p><p>Rate = ( 1 - " + useful_life + "&#8730;" + " " + scrp_value + " / " + cost + " ) x 100 = " + RBB_rate.toFixed(2) + "%</p>";
         document.getElementById('answer_description').innerHTML = answer_description;
     }
 
@@ -143,18 +143,7 @@ function insertAfter(referenceNode, newNode) {
 }
 
 function RBB_calculate_rate(cost, scrp_value, useful_life) {
-    let complex = (1 - nthroot(scrp_value / cost, useful_life)) * 100;
+    let cs = scrp_value/cost;
+    let complex = (1 - Math.pow(cs, 1/useful_life)) * 100;
     return complex;
 }
-
-function nthroot(x, n)
-   {
-    ng = n % 2;
-    if((ng == 1) || x<0)
-       x = -x;
-    var r = Math.pow(x, 1 / n);
-    n = Math.pow(r, n);
-  
-    if(Math.abs(x - n) < 1 && (x > 0 === n > 0))
-      return ng ? -r : r; 
-   }
