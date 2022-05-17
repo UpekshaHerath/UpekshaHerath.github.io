@@ -32,15 +32,15 @@
         <form method="post" onsubmit="return LSB()" name="SLB_form" id="SLB" style="display: none;">
             <div class="mb-3">
                 <label for="cost" class="form-label bold">Cost : </label>
-                <input type="text" class="form-control" id="cost" name="cost" placeholder="Cost">
+                <input type="text" class="form-control" id="cost" name="cost" placeholder="Cost" required>
             </div>
             <div class="mb-3">
                 <label for="scrp_value" class="form-label bold">Scrap Value : </label>
-                <input type="text" class="form-control" id="scrp_value" name="scrp_value" placeholder="Scrap Value">
+                <input type="text" class="form-control" id="scrp_value" name="scrp_value" placeholder="Scrap Value" required>
             </div>
             <div class="mb-3">
                 <label for="useful_life" class="form-label bold">Useful Life : </label>
-                <input type="text" class="form-control" id="useful_life" placeholder="Useful Life (In Years)">
+                <input type="text" class="form-control" id="useful_life" placeholder="Useful Life (In Years)" required>
             </div>
             <div>
                 <input class="btn btn-outline-primary" type="submit" value="calculate">
@@ -59,15 +59,15 @@
         <form method="post" onsubmit="return PUB()" name="PUB_form" id="PUB" style="display: none;">
             <div class="mb-3">
                 <label for="cost" class="form-label bold">Cost : </label>
-                <input type="text" class="form-control" id="cost" name="cost" placeholder="Cost">
+                <input type="text" class="form-control" id="cost" name="cost" placeholder="Cost" required>
             </div>
             <div class="mb-3">
                 <label for="scrp_value" class="form-label bold">Scrap Value : </label>
-                <input type="text" class="form-control" id="scrp_value" name="scrp_value" placeholder="Scrap Value">
+                <input type="text" class="form-control" id="scrp_value" name="scrp_value" placeholder="Scrap Value" required>
             </div>
             <div class="mb-3" id="following_elements">
                 <label for="PUB_useful_life" class="form-label bold">Useful Life : </label>
-                <input type="text" class="form-control" id="PUB_useful_life" name="useful_life" placeholder="Useful Life (In Years)" onchange="input_production_per_year()">
+                <input type="text" class="form-control" id="PUB_useful_life" name="useful_life" placeholder="Useful Life (In Years)" onchange="input_production_per_year()" required>
             </div>
             <div>
                 <input class="btn btn-outline-primary" type="submit" value="calculate">

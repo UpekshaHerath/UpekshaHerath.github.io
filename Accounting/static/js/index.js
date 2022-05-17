@@ -1,3 +1,5 @@
+import { validation } from './userValidation';
+
 let useful_life;
 let flag = 0;
 
@@ -43,8 +45,10 @@ function dropdown_select() {
             document.getElementById('PUB').style.display = "none";
             break;
         case '3' : 
-            reset_form_PUB();
             flag = 3;
+            reset_form_PUB();
+            document.getElementById('answer_PUB').textContent = "Depreciation Value";
+            document.getElementById('answer_description_PUB').textContent = "Provided Inputs";
             document.getElementById('answer_PUB').textContent = "Answer";
             document.getElementById('PUB').style.display = "block";
             document.getElementById('SLB').style.display = "none";
@@ -119,7 +123,8 @@ function reset_form_PUB() {
     document.forms['PUB_form'].cost.value = "";
     document.forms['PUB_form'].scrp_value.value = "";
     document.forms['PUB_form'].useful_life.value = "";
-
+    
+    
     let following_elements = document.getElementById('following_elements');
     for (let i = 1; i <= useful_life; i++) {
         let need_to_remove = document.getElementById('PUB_y_'+i);
