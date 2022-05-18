@@ -1,5 +1,3 @@
-import { validation } from './userValidation';
-
 let useful_life;
 let flag = 0;
 
