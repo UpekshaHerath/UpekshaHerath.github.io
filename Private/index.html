@@ -304,7 +304,6 @@
                     <p class="line-text">Have worked with my own projects.</p>
                   </div>
                 </li>
-                
               </ul>
             </div>
           </div>
@@ -487,7 +486,7 @@
 
     <!-- Contact Section Start -->
     <section id="contact" class="section-padding">
-      <div class="contact-form">
+      <form class="contact-form" onsubmit="return sendMail()">
         <div class="container">
           <div class="row contact-form-area wow fadeInUp" data-wow-delay="0.4s">
             <div class="col-md-6 col-lg-6 col-sm-12">
@@ -518,6 +517,20 @@
                         <textarea class="form-control" id="message" placeholder="Your Message" rows="5" data-error="Write your message" required></textarea>
 <!--                        <div class="help-block with-errors"></div>-->
                       </div>
+
+                      <!-- Error message -->
+<!--                      <div class="form-group" style="background-color: green; color: white">-->
+<!--                        <p id="errorMessage">Error message</p>-->
+<!--                      </div>-->
+
+                      <!--  -->
+                      <div id="errorMessageContainer" class="alert alert-warning alert-dismissible fade show" style="display: none">
+                        <p id="errorMessage">Error Message</p>
+                        <button type="button" class="close" onclick="dismissalOfComponent()">
+                          <span>&times;</span>
+                        </button>
+                      </div>
+
                       <div class="submit-button">
                         <button class="btn btn-common" id="submit" onclick="sendMail()">Send Email</button>
 <!--                        <div id="msgSubmit" class="h3 text-center hidden"></div>-->
@@ -564,7 +577,7 @@
           </div>
           </div>
         </div>
-      </div>
+      </form>
     </section>
     <!-- Contact Section End -->
 
