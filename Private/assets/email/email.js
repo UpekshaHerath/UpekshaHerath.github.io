@@ -7,6 +7,10 @@ function sendMail() {
     const inputMessage = document.getElementById('message').value;
     const inputMsgSubject = document.getElementById('msg_subject').value;
 
+    // initializing the danger alert
+    document.getElementById('errorMessageContainer').classList.remove('alert-success');
+    document.getElementById('errorMessageContainer').classList.add('alert-danger');
+
     if (inputName == '') {
         document.getElementById('errorMessage').textContent = 'Please enter your name...';
         document.getElementById('errorMessageContainer').style.display = "flex";
