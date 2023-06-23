@@ -42,7 +42,8 @@ function sendMail() {
     const templateID = "template_tznj8q5";
     console.table(params);
 
-    document.getElementById('errorMessageContainer').style.display = "none";
+    // document.getElementById('errorMessageContainer').style.display = "none";
+    dismissalOfComponent();
 
     emailjs.send(serviceID, templateID, params).then(
         res => {
@@ -52,7 +53,11 @@ function sendMail() {
             document.getElementById('msg_subject').value = "";
             document.getElementById('errorMessage').innerText = "";
             if (res.status == 200) {
-                alert("Your email sent successfully...");
+                // dismissalOfComponent();
+                document.getElementById('errorMessage').innerText = "Your email sent successfully...";
+                document.getElementById('errorMessageContainer').classList.remove('alert-danger');
+                document.getElementById('errorMessageContainer').classList.add('alert-success');
+                document.getElementById('errorMessageContainer').style.display = "flex";
             } else {
                 alert("Error while sending the email...");
             }
@@ -65,4 +70,9 @@ function sendMail() {
 
 const dismissalOfComponent = () => {
     document.getElementById('errorMessageContainer').style.display = "none";
+}
+
+const showingOfComponent = () => {
+    document.getElementById('errorMessageContainer').style.display = "flex";
+    document.getElementById('errorMessageContainer').classList.add('alert-success');
 }
