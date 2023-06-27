@@ -118,7 +118,7 @@
       <!-- Navbar End -->
 
       <!-- Hero Area Start -->
-      <div id="hero-area" class="hero-area-bg">
+      <div id="hero-area" class="hero-area-bg" style="height: 100vh; justify-content: center">
         <div class="container" id="home">
           <div class="row">
             <div class="col-md-12 col-sm-12 text-center">
@@ -126,7 +126,9 @@
                 <h5 class="script-font wow fadeInUp" data-wow-delay="0.2s">Hi there, I'm</h5>
                 <h2 id="type_text" class="head-title wow fadeInUp" data-wow-delay="0.4s">UPEKSHA HERATH</h2>
                 <p class="script-font wow fadeInUp" data-wow-delay="0.6s">A student who is looking for an IT Internship</p>
-                <ul class="social-icon wow fadeInUp" data-wow-delay="0.8s">
+                <p class="script-font wow fadeInUp" data-wow-delay="0.8s">Interested in; </p>
+                <p class="script-font wow fadeInUp" data-wow-delay="1.0s"><span class="auto-typed"></span></p>
+                <ul class="social-icon wow fadeInUp" data-wow-delay="1.2s">
                   <!-- <li>
                     <a class="facebook" href="#"><i class="icon-social-facebook"></i></a>
                   </li> -->
@@ -143,7 +145,7 @@
                     <a class="google" href="#"><i class="icon-social-google"></i></a>
                   </li> -->
                 </ul>
-                <div class="header-button wow fadeInUp" data-wow-delay="1s">
+                <div class="header-button wow fadeInUp" data-wow-delay="1.4s">
                   <a class="btn btn-common" href="index.html"></a>
                 </div>
               </div>
@@ -156,16 +158,16 @@
     <!-- Header Area wrapper End -->
 
     <!-- About Section Start -->
-    <section id="about" class="section-padding">
+    <section id="about" class="section-padding" >
       <div class="container">
         <div class="row">
           <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-            <div class="img-thumb wow fadeInLeft" data-wow-delay="0.3s">
+            <div class="img-thumb wow fadeInLeft" data-wow-delay="0.5s">
               <img class="img-fluid" src="assets/img/about/UpekshaHerath (1).png" alt="My Image">
             </div>
           </div> 
           <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-            <div class="profile-wrapper wow fadeInRight" data-wow-delay="0.3s">
+            <div class="profile-wrapper wow fadeInRight" data-wow-delay="0.7s">
               <h3>Hi Guys!</h3>
               <p>I'm a passionate, enthusiastic, and skilled undergraduate who is committed to working smart to achieve goals and willing to take on any challenge. Moreover, a responsible team player with solid and friendly leadership qualities and a good team spirit who can adapt and focus on any productive targets, seeking an opportunity as a software engineer intern to apply and explore existing and emerging technologies in the field of Information Technology.
               </p>
@@ -191,7 +193,7 @@
     <!-- About Section End -->
 
     <!-- Services Section Start -->
-    <section id="services" class="services section-padding">
+    <section id="services" class="services section-padding" >
       <h2 id="type_text" class="section-title wow flipInX" data-wow-delay="0.4s">Tec Related Topics I'm Engaged in Present</h2>
       <div class="container">
         <div class="row">
@@ -616,6 +618,18 @@
     <a href="#" class="back-to-top">
       <i class="icon-arrow-up"></i>
     </a>
+
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script> <!-- CDN for typed.js -->
+    <script>
+      var typed = new Typed(".auto-typed", {
+        strings: ["Web Development", "Mobile Development", "Blockchain Related Technologies", "AI Related Technologies"],
+        typeSpeed: 150,
+        backSpeed: 50,
+        loop: true
+      })
+    </script>
+
+
     <script src="assets/js/jquery-min.js"></script>
     <script src="assets/js/popper.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
