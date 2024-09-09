@@ -22,17 +22,17 @@ const info = [
   {
     icon: <FaPhoneAlt />,
     title: "Phone",
-    description: "(+40) 321 654 876",
+    description: "(+94) 77 3128 452",
   },
   {
     icon: <FaEnvelope />,
     title: "Email",
-    description: "youremail@gmail.com",
+    description: "upekshah.official@gmail.com",
   },
   {
     icon: <FaMapMarkerAlt />,
     title: "Address",
-    description: "Code Corner, Tech Town 13579",
+    description: "Thalammehera, Pannala, Sri Lanka",
   },
 ];
 
@@ -85,10 +85,10 @@ const Contact = () => {
             <form ref={form} onSubmit={sendEmail} className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl">
 
               <h3 className="text-4xl text-accent">Let's work together</h3>
-                <p className="text-white/60">
+                {/* <p className="text-white/60">
                   Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum
                   nihil sapiente pariatur id totam.
-                </p>
+                </p> */}
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <Input type="firstname" placeholder="Firstname" name="firstName" />
@@ -105,8 +105,8 @@ const Contact = () => {
                     <SelectGroup>
                       <SelectLabel>Select a service</SelectLabel>
                       <SelectItem value="est">Web Development</SelectItem>
-                      <SelectItem value="cst">UI/UX Design</SelectItem>
-                      <SelectItem value="mst">Logo Design</SelectItem>
+                      <SelectItem value="cst">Mobile Development</SelectItem>
+                      <SelectItem value="mst">Content Creation</SelectItem>
                     </SelectGroup>
                   </SelectContent>
                 </Select>
