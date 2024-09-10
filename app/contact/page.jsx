@@ -4,6 +4,14 @@ import { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import {
+  emailSendValidation,
+  sendEmail,
+  sendToast,
+  validateEmail,
+  validateMobileNumber,
+} from "@/lib/utils";
+import toast, { Toaster } from "react-hot-toast";
 
 import {
   Select,
@@ -16,7 +24,6 @@ import {
 } from "@/components/ui/select";
 
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
-import emailjs from '@emailjs/browser';
 
 const info = [
   {
@@ -40,33 +47,43 @@ import { motion } from "framer-motion";
 
 const Contact = () => {
   const form = useRef();
+  const [isEmailValidated, setIsEmailValidated] = useState(true);
+  const [isMobileNumberValidated, setIsMobileNumberValidated] = useState(true);
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phoneNumber: "",
+    subject: "",
+    service: "",
+    message: "",
+  });
 
-  const [emailData, setEmailData] = useState({
-    name: '',
-    email: '',
-    message: '',
-    subject: ''
-  })
-
-  const sendEmail = (e) => {
+  const submitContactForm = (e) => {
     e.preventDefault();
-
-    console.log(emailData);
-
-    console.log(form);
-
-    emailjs.sendForm('service_rh243gm', 'template_tznj8q5', form.current, {
-      publicKey: 'R5bUziqMip7IBJDuk',
-    })
-    .then(
-      () => {
-        console.log('Email sent successfully!');
-      }, 
-      (error) => {
-        console.log('Email sent failed...', error.text);
-      },
-    );
-  }
+    if (!isEmailValidated && !isMobileNumberValidated) {
+      sendToast("Invalid email", "error");
+      sendToast("Invalid mobile number", "error");
+      return;
+    } else if (!isMobileNumberValidated) {
+      sendToast("Invalid mobile number", "error");
+      return;
+    } else if (!isEmailValidated) {
+      sendToast("Invalid email", "error");
+      return;
+    }
+    sendEmail(form);
+    sendToast("Email sent successfully !", "success");
+    setFormData({
+      firstName: "",
+      lastName: "",
+      email: "",
+      phoneNumber: "",
+      subject: "",
+      service: "",
+      message: "",
+    });
+  };
 
   return (
     <motion.section
@@ -79,51 +96,157 @@ const Contact = () => {
     >
       <div className="container mx-auto">
         <div className="flex flex-col xl:flex-row gap-[30px]">
-          
           <div className="xl:w-[54%] order-2 xl:order-none">
-
-            <form ref={form} onSubmit={sendEmail} className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl">
-
+            <form
+              ref={form}
+              onSubmit={(e) => submitContactForm(e)}
+              className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl"
+            >
               <h3 className="text-4xl text-accent">Let's work together</h3>
-                {/* <p className="text-white/60">
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum
-                  nihil sapiente pariatur id totam.
-                </p> */}
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <Input type="firstname" placeholder="Firstname" name="firstName" />
-                  <Input type="lastname" placeholder="Lastname" name="lastName" />
-                  <Input type="email" placeholder="Email address" name="email" />
-                  <Input type="phone" placeholder="Phone number" name="phoneNumber" />
-                </div>
-                
-                <Select>
-                  <SelectTrigger className="w-full">
-                    <SelectValue placeholder="Select a service" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectGroup>
-                      <SelectLabel>Select a service</SelectLabel>
-                      <SelectItem value="est">Web Development</SelectItem>
-                      <SelectItem value="cst">Mobile Development</SelectItem>
-                      <SelectItem value="mst">Content Creation</SelectItem>
-                    </SelectGroup>
-                  </SelectContent>
-                </Select>
-                
-                <Textarea
-                  className="h-[200px]"
-                  placeholder="Type your message here."
+              <p className="text-white/60">
+                If you need to contact me for any service feel free to contact
+                me. No worries, I'm a friendly guy. 🤩
+              </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <Input
+                  required
+                  type="firstname"
+                  placeholder="Firstname"
+                  name="firstName"
+                  value={formData.firstName}
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      firstName: e.target.value,
+                    })
+                  }
                 />
-                
-                <Button size="md" className="max-w-40">
-                  Send message
-                </Button>
+                <Input
+                  type="lastname"
+                  placeholder="Lastname"
+                  name="lastName"
+                  value={formData.lastName}
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      lastName: e.target.value,
+                    })
+                  }
+                />
+                <Input
+                  required
+                  type="email"
+                  placeholder="Email address"
+                  name="email"
+                  value={formData.email}
+                  className={
+                    !isEmailValidated && `focus:border-red-500 border-red-500`
+                  }
+                  onChange={(e) => {
+                    setFormData({
+                      ...formData,
+                      email: e.target.value,
+                    });
+                    setIsEmailValidated(validateEmail(e.target.value));
+                  }}
+                />
+                <Input
+                  required
+                  type="phone"
+                  placeholder="Phone number"
+                  name="phoneNumber"
+                  value={formData.phoneNumber}
+                  className={
+                    !isMobileNumberValidated &&
+                    `focus:border-red-500 border-red-500`
+                  }
+                  onChange={(e) => {
+                    setFormData({
+                      ...formData,
+                      phoneNumber: e.target.value,
+                    });
+                    setIsMobileNumberValidated(
+                      validateMobileNumber(e.target.value)
+                    );
+                  }}
+                />
+              </div>
 
+              <Input
+                type="subject"
+                placeholder="Subject"
+                name="subject"
+                value={formData.subject}
+                onChange={(e) =>
+                  setFormData({
+                    ...formData,
+                    subject: e.target.value,
+                  })
+                }
+              />
+
+              <Select
+                name="service"
+                onValueChange={(value) =>
+                  setFormData({
+                    ...formData,
+                    service: value,
+                  })
+                }
+              >
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="Select a service" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectGroup>
+                    <SelectLabel>Select a service</SelectLabel>
+                    <SelectItem value="web development">
+                      Web Development
+                    </SelectItem>
+                    <SelectItem value="mobile development">
+                      Mobile Development
+                    </SelectItem>
+                    <SelectItem value="content creation">
+                      Content Creation
+                    </SelectItem>
+                    <SelectItem value="other service">Other Service</SelectItem>
+                    <SelectItem value="just to contact">
+                      Just to contact
+                    </SelectItem>
+                  </SelectGroup>
+                </SelectContent>
+              </Select>
+
+              <Textarea
+                required
+                className="h-[200px]"
+                placeholder="Type your message here."
+                name="message"
+                value={formData.message}
+                onChange={(e) =>
+                  setFormData({
+                    ...formData,
+                    message: e.target.value,
+                  })
+                }
+              />
+
+              <Toaster
+                toastOptions={{
+                  style: {
+                    background: "#363636",
+                    color: "#fff",
+                  },
+                }}
+              />
+
+              <Button size="md" className="max-w-40">
+                Send message
+              </Button>
             </form>
-
           </div>
-          
+
           <div className="flex-1 flex items-center xl:justify-end order-1 xl:order-none mb-8 xl:mb-0">
             <ul className="flex flex-col gap-10">
               {info.map((item, index) => {
@@ -134,7 +257,9 @@ const Contact = () => {
                     </div>
                     <div className="flex-1">
                       <p className="text-white/60">{item.title}</p>
-                      <h3 className="text-sm xsm:text-xl">{item.description}</h3>
+                      <h3 className="text-sm xsm:text-xl">
+                        {item.description}
+                      </h3>
                     </div>
                   </li>
                 );
