@@ -5,13 +5,12 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import {
-  emailSendValidation,
   sendEmail,
   sendToast,
   validateEmail,
   validateMobileNumber,
 } from "@/lib/utils";
-import toast, { Toaster } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 
 import {
   Select,
@@ -72,17 +71,17 @@ const Contact = () => {
       sendToast("Invalid email", "error");
       return;
     }
-    sendEmail(form);
-    sendToast("Email sent successfully !", "success");
-    setFormData({
-      firstName: "",
-      lastName: "",
-      email: "",
-      phoneNumber: "",
-      subject: "",
-      service: "",
-      message: "",
-    });
+    if (sendEmail(form)) {
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phoneNumber: "",
+        subject: "",
+        service: "",
+        message: "",
+      });
+    }
   };
 
   return (
