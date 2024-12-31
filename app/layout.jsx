@@ -14,7 +14,7 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata = {
   title: "Upeksha Herath",
-  description: "An enthusiastic and talented software engineer",
+  description: "Undergraduate at University of Moratuwa. And an enthusiastic and talented Software Engineer.",
 };
 
 export default function RootLayout({ children }) {
