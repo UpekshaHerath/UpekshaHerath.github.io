@@ -22,34 +22,71 @@ import WorkSliderBtns from "@/components/WorkSliderBtns";
 const projects = [
   {
     num: "01",
-    category: "frontend",
+    category: "Blockchain based Vehicle Ownership Management System",
     title: "project 1",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate magnam modi.",
-    stack: [{ name: "Html 5" }, { name: "Css 3" }, { name: "Javascript" }],
-    image: "/assets/work/thumb1.png",
+      "The whole project was a Vehicle Ownership Management System built on top of Etherium. In this there was a mobile wallet that can be used to store SSIs. This is the Second Year Software Project's my individually contributed part. The whole project is a blockchain-based vehicle ownership management system. ",
+    stack: [
+      { name: "React Native" },
+      { name: "Hyperledger Aries Cloud Agent Python (ACA-Py)" },
+    ],
+    image: "/assets/projects/thumb1.png",
     live: "",
     github: "",
   },
   {
     num: "02",
-    category: "fullstack",
+    category: "Depreciation Calculator - 2021",
     title: "project 2",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate magnam modi.",
-    stack: [{ name: "Next.js" }, { name: "Tailwind.css" }, { name: "Node.js" }],
-    image: "/assets/work/thumb2.png",
+      "A front-end application for a accounting concept called depreciation.",
+    stack: [
+      { name: "HTML" },
+      { name: "CSS" },
+      { name: "Bootstrap" },
+      { name: "Venilla JS" },
+    ],
+    image: "/assets/projects/thumb2.png",
     live: "",
     github: "",
   },
   {
     num: "03",
-    category: "frontend",
+    category:
+      "Automated Camera Stand for Wild Life Photography - 2020 (Team leader)",
     title: "project 3",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate magnam modi.",
-    stack: [{ name: "Next.js" }, { name: "Tailwind.css" }],
-    image: "/assets/work/thumb3.png",
+      "In this project, we designed and built a camera stand for distance photography process to make sure it is safer and more effective. This project is a micro-controller-based project. ",
+    stack: [
+      { name: "C" },
+      { name: "Atmega 32" },
+      { name: "Atmel Studio" },
+      { name: "Proteus" },
+    ],
+    image: "/assets/projects/thumb3.png",
+    live: "",
+    github: "",
+  },
+  {
+    num: "04",
+    category: "Blog Site- 2021",
+    title: "project 4",
+    description:
+      "Blog application that can do CRUD operations related to blogs related to a particular author.",
+    stack: [{ name: "React" }, { name: "JSON Server" }],
+    image: "/assets/projects/thumb2.png",
+    live: "",
+    github: "",
+  },
+  {
+    num: "05",
+    category:
+      "Skill Performance Ball Data Visualization using mobile application.",
+    title: "project 5",
+    description:
+      "This is an application related to cricket that can be used to track the changes in a ball. We can take data related to the motion and the rotation of the ball using this application. ",
+    stack: [{ name: "React Native" }, { name: "Firebase" }],
+    image: "/assets/projects/thumb2.png",
     live: "",
     github: "",
   },
@@ -84,7 +121,7 @@ const Work = () => {
               </div>
               {/* project category */}
               <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
-                {project.category} project
+                {project.category}
               </h2>
               {/* project description */}
               <p className="text-white/60">{project.description}</p>
@@ -92,10 +129,11 @@ const Work = () => {
               <ul className="flex gap-4">
                 {project.stack.map((item, index) => {
                   return (
-                    <li key={index} className="text-xl text-accent">
+                    <li
+                      key={index}
+                      className="text-xl text-accent border-white border rounded-xl px-4 py-1"
+                    >
                       {item.name}
-                      {/* remove the last comma */}
-                      {index !== project.stack.length - 1 && ","}
                     </li>
                   );
                 })}
