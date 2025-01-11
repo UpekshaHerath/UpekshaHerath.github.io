@@ -65,7 +65,7 @@ const projects = [
     ],
     image: "/assets/projects/thumb3.png",
     live: "",
-    github: "https://github.com/hansajayathilaka/L1-Hardware-Project.git",
+    github: "https://github.com/UpekshaHerath/L1-Hardware-Project.git",
   },
   {
     num: "04",
