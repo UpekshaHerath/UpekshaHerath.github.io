@@ -87,7 +87,7 @@ const projects = [
     description:
       "This is an application related to cricket that can be used to track the changes in a ball. We can take data related to the motion and the rotation of the ball using this application. ",
     stack: [{ name: "React Native" }, { name: "Firebase" }],
-    image: "/assets/projects/thumb2.png",
+    image: "/assets/projects/thumb1.png",
     live: "",
     github:
       "https://github.com/UpekshaHerath/spin_ball_performace_tracking_app.git",
