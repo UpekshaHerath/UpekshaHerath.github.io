@@ -32,7 +32,7 @@ const projects = [
     ],
     image: "/assets/projects/thumb1.png",
     live: "",
-    github: "",
+    github: "https://github.com/UpekshaHerath/L2-Software-Project.git",
   },
   {
     num: "02",
@@ -46,9 +46,9 @@ const projects = [
       { name: "Bootstrap" },
       { name: "Venilla JS" },
     ],
-    image: "/assets/projects/thumb2.png",
-    live: "",
-    github: "",
+    image: "/assets/projects/depreciationCalculator.png",
+    live: "https://upeksha.me/depreciation-calculator/",
+    github: "https://github.com/UpekshaHerath/depreciation-calculator.git",
   },
   {
     num: "03",
@@ -65,7 +65,7 @@ const projects = [
     ],
     image: "/assets/projects/thumb3.png",
     live: "",
-    github: "",
+    github: "https://github.com/hansajayathilaka/L1-Hardware-Project.git",
   },
   {
     num: "04",
@@ -76,7 +76,8 @@ const projects = [
     stack: [{ name: "React" }, { name: "JSON Server" }],
     image: "/assets/projects/thumb2.png",
     live: "",
-    github: "",
+    github:
+      "https://github.com/UpekshaHerath/Blog-site-frontend-using-react.git",
   },
   {
     num: "05",
@@ -88,7 +89,19 @@ const projects = [
     stack: [{ name: "React Native" }, { name: "Firebase" }],
     image: "/assets/projects/thumb2.png",
     live: "",
-    github: "",
+    github:
+      "https://github.com/UpekshaHerath/spin_ball_performace_tracking_app.git",
+  },
+  {
+    num: "05",
+    category: "Portforlio website - old version",
+    title: "project 6",
+    description:
+      "This is the old version of my portfolio website. This is a static website that is built using HTML, CSS, and JS.",
+    stack: [{ name: "HTML" }, { name: "CSS" }, { name: "JS" }],
+    image: "/assets/projects/oldPortfolio.png",
+    live: "https://upeksha.me/old_portfolio_website/",
+    github: "https://github.com/UpekshaHerath/old_portfolio_website.git",
   },
 ];
 
@@ -143,31 +156,36 @@ const Work = () => {
               {/* buttons */}
               <div className="flex items-center gap-4">
                 {/* live project button */}
-                <Link href={project.live}>
-                  <TooltipProvider delayDuration={100}>
-                    <Tooltip>
-                      <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
-                        <BsArrowUpRight className="text-white text-3xl group-hover:text-accent" />
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p>Live project</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
-                </Link>
+                {project.live !== "" ? (
+                  <Link href={project.live}>
+                    <TooltipProvider delayDuration={100}>
+                      <Tooltip>
+                        <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
+                          <BsArrowUpRight className="text-white text-3xl group-hover:text-accent" />
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>Live project</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                  </Link>
+                ) : null}
+
                 {/* github project button */}
-                <Link href={project.github}>
-                  <TooltipProvider delayDuration={100}>
-                    <Tooltip>
-                      <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
-                        <BsGithub className="text-white text-3xl group-hover:text-accent" />
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p>Github repository</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
-                </Link>
+                {project.github !== "" ? (
+                  <Link href={project.github}>
+                    <TooltipProvider delayDuration={100}>
+                      <Tooltip>
+                        <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
+                          <BsGithub className="text-white text-3xl group-hover:text-accent" />
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>Github repository</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                  </Link>
+                ) : null}
               </div>
             </div>
           </div>
