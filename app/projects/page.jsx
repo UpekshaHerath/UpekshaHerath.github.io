@@ -103,6 +103,17 @@ const projects = [
     live: "https://upeksha.me/old_portfolio_website/",
     github: "https://github.com/UpekshaHerath/old_portfolio_website.git",
   },
+  {
+    num: "06",
+    category: "Library Mangement System",
+    title: "project 7",
+    description:
+      "This is a library management system that is built using MERN stack as to manage a small school library.",
+    stack: [{ name: "React" }, { name: "Express.js" }, { name: "MongoDB" }],
+    image: "/assets/projects/libraryManagementSystem.png",
+    live: "",
+    github: "https://github.com/UpekshaHerath/libraryManagementSystem",
+  }
 ];
 
 const Work = () => {
