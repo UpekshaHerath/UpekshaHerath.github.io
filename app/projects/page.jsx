@@ -93,7 +93,7 @@ const projects = [
       "https://github.com/UpekshaHerath/spin_ball_performace_tracking_app.git",
   },
   {
-    num: "05",
+    num: "06",
     category: "Portforlio website - old version",
     title: "project 6",
     description:
@@ -104,7 +104,7 @@ const projects = [
     github: "https://github.com/UpekshaHerath/old_portfolio_website.git",
   },
   {
-    num: "06",
+    num: "07",
     category: "Library Mangement System",
     title: "project 7",
     description:
