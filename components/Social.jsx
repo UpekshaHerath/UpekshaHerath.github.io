@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { FaGithub, FaLinkedinIn, FaYoutube, FaTwitter, FaMedium } from "react-icons/fa";
+import { FaGithub, FaLinkedinIn, FaYoutube, FaTwitter, FaMedium, FaHackerrank } from "react-icons/fa";
 
 const socials = [
   { icon: <FaGithub />, path: "https://github.com/UpekshaHerath" },
@@ -8,6 +8,7 @@ const socials = [
   { icon: <FaYoutube />, path: "https://www.youtube.com/channel/UCpGrjJuDRmQjnoVfRIp1ovw" },
   { icon: <FaTwitter />, path: "https://x.com/Upeksha_Herath" },
   { icon: <FaMedium />, path: "https://medium.com/@upekshadilshan000" },
+  { icon: <FaHackerrank />, path: "https://www.hackerrank.com/profile/upekshadilshan01" },
 ];
 
 const Social = ({ containerStyles, iconStyles }) => {
