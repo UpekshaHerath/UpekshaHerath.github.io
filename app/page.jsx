@@ -18,10 +18,12 @@ const Home = () => {
               Hello I'm <br />{" "}
               <span className="text-accent">Upeksha Herath</span>
             </h1>
-            <p className="max-w-[500px] mb-9 text-white/80">
-              I excited at developing Web and Mobile solutions which will add
-              value for my clients...
-            </p>
+            <div className="flex flex-col xl:flex-row items-center gap-8">
+              <p className="max-w-[500px] mb-9 text-white/80">
+                I excited at developing Web and Mobile solutions which will add
+                value for my clients...
+              </p>
+            </div>
             {/* btn and socials */}
             <div className="flex flex-col xl:flex-row items-center gap-8">
               <a href="/Upeksha_Herath_CV.pdf" download="Upeksha_Herath_CV">
