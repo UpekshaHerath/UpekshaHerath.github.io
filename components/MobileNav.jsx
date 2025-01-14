@@ -4,6 +4,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { CiMenuFries } from "react-icons/ci";
+import * as SheetPrimitive from "@radix-ui/react-dialog";
 
 const links = [
   {
@@ -56,7 +57,7 @@ const MobileNav = () => {
                   "text-accent border-b-2 border-accent"
                 } text-xl capitalize hover:text-accent transition-all`}
               >
-                {link.name}
+                <SheetPrimitive.Close>{link.name}</SheetPrimitive.Close>
               </Link>
             );
           })}
