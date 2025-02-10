@@ -240,9 +240,11 @@ const Contact = () => {
                 }}
               />
 
-              <Button size="md" className="max-w-40">
-                Send message
-              </Button>
+              <div className="flex">
+                <Button size="md" className="max-w-40">
+                  Send message
+                </Button>
+              </div>
             </form>
           </div>
 
