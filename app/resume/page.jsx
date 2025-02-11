@@ -66,7 +66,7 @@ const experience = {
       company: "Rootcode Labs",
       link: "https://rootcode.io/",
       position: "Software Engineering Intern - full time",
-      duration: "2022 January - July",
+      duration: "2023 January - July",
     },
     {
       company: "Wanasinghe holdings",
@@ -82,7 +82,7 @@ const education = {
   icon: "/assets/resume/cap.svg",
   title: "My education",
   description:
-    "Currently I'm reading for my bsc in Software Engineering at University of Moratuwa Faculty of IT.",
+    "Currently I'm reading for my Bsc in Information Technology at University of Moratuwa Faculty of IT.",
   items: [
     {
       institution: "University of Moratuwa - SL",
