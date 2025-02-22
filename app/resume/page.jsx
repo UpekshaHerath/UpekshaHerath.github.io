@@ -8,11 +8,10 @@ import {
   FaFigma,
   FaNodeJs,
 } from "react-icons/fa";
+import { FiDownload } from "react-icons/fi";
 
 import { SiCanva, SiSpringboot } from "react-icons/si";
-import { GiPublicSpeaker } from "react-icons/gi";
-import { TbMathSymbols } from "react-icons/tb";
-import { RiTeamLine } from "react-icons/ri";
+import { Button } from "@/components/ui/button";
 
 import { SiTailwindcss, SiNextdotjs } from "react-icons/si";
 
@@ -59,20 +58,23 @@ const experience = {
     {
       company: "Enlear",
       link: "https://www.enlear.com/",
-      position: "Content Creator - part time",
+      position: "Technical Writer - part time",
       duration: "2021 - to present",
+      url: "",
     },
     {
       company: "Rootcode Labs",
       link: "https://rootcode.io/",
       position: "Software Engineering Intern - full time",
       duration: "2023 January - July",
+      url: "/assets/resume/docs/Upeksha Herath.rootcode.pdf",
     },
     {
       company: "Wanasinghe holdings",
       link: "https://www.lioncoco.lk/",
       position: "Main Store Keeper - full time",
       duration: "2020 - 2021",
+      url: "",
     },
   ],
 };
@@ -150,7 +152,7 @@ const skills = {
     {
       icon: <SiCanva />,
       name: "canva",
-    }
+    },
   ],
 };
 
@@ -209,10 +211,29 @@ const Resume = () => {
                           <h3 className="text-xl max-w-[260px] min-h-[60px] text-center lg:text-left">
                             {item.position}
                           </h3>
-                          <div className="flex items-center gap-3">
+                          <div className="flex items-center gap-3 space-between">
                             {/* dot */}
-                            <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
-                            <p className="text-white/60">{item.company}</p>
+                            <div className="flex items-center gap-3">
+                              <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
+                              <p className="text-white/60">{item.company}</p>
+                            </div>
+                            {
+                              item.url ? (
+                                <a
+                                  href={item.url}
+                                  download="Upeksha_Herath_service_letter"
+                                >
+                                  <Button
+                                    variant="outline"
+                                    size="sm"
+                                    className="uppercase flex items-center gap-2 m-1 p-2 px-4"
+                                  >
+                                    <span className="text-xs">letter</span>
+                                    <FiDownload className="text-xl" />
+                                  </Button>
+                                </a>
+                              ) : null
+                            }
                           </div>
                         </li>
                       );
@@ -293,25 +314,27 @@ const Resume = () => {
               value="about"
               className="w-full text-center xl:text-left"
             >
-                <div className="flex flex-col gap-[30px]">
-                  <h3 className="text-4xl font-bold">{about.title}</h3>
-                  <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
-                    {about.description}
-                  </p>
-                  <ul className="grid grid-cols-1 xl:grid-cols-2 gap-y-6 max-w-[620px] mx-auto xl:mx-0">
-                    {about.info.map((item, index) => {
-                      return (
-                        <li
-                          key={index}
-                          className="flex items-center justify-center xl:justify-start gap-4"
-                        >
-                          <span className="text-white/60 hidden xsm:flex">{item.fieldName}</span>
-                          <span className="text-xl">{item.fieldValue}</span>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </div>
+              <div className="flex flex-col gap-[30px]">
+                <h3 className="text-4xl font-bold">{about.title}</h3>
+                <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
+                  {about.description}
+                </p>
+                <ul className="grid grid-cols-1 xl:grid-cols-2 gap-y-6 max-w-[620px] mx-auto xl:mx-0">
+                  {about.info.map((item, index) => {
+                    return (
+                      <li
+                        key={index}
+                        className="flex items-center justify-center xl:justify-start gap-4"
+                      >
+                        <span className="text-white/60 hidden xsm:flex">
+                          {item.fieldName}
+                        </span>
+                        <span className="text-xl">{item.fieldValue}</span>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
             </TabsContent>
           </div>
         </Tabs>
