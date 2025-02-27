@@ -114,6 +114,17 @@ const projects = [
     live: "",
     github: "https://github.com/UpekshaHerath/libraryManagementSystem",
   },
+  {
+    num: "08",
+    category: "Vehicle Tracking System",
+    title: "project 8",
+    description:
+    "This project aims to develop a specialized monitoring device to ensure the safe transportation of food and pharmaceutical items. The device helps maintain optimal temperature conditions, detect vehicle speed, and provide real-time location tracking using GPS.",
+    stack: [{ name: "Next.js"}, { name: "Firebase"}, { name: "Arduino"}],
+    image: "/assets/projects/vehicleTrackingSystem.png",
+    live: "https://esp32-vehicle-tracking-system.vercel.app/",
+    github: "https://github.com/UpekshaHerath/esp32-vehicle-tracking-system",
+  }
 ];
 
 const Work = () => {
