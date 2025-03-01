@@ -74,7 +74,7 @@ const projects = [
     description:
       "Blog application that can do CRUD operations related to blogs related to a particular author.",
     stack: [{ name: "React" }, { name: "JSON Server" }],
-    image: "/assets/projects/thumb2.png",
+    image: "/assets/projects/blogSiteFrontend.png",
     live: "",
     github:
       "https://github.com/UpekshaHerath/Blog-site-frontend-using-react.git",
@@ -87,7 +87,7 @@ const projects = [
     description:
       "This is an application related to cricket that can be used to track the changes in a ball. We can take data related to the motion and the rotation of the ball using this application. ",
     stack: [{ name: "React Native" }, { name: "Firebase" }],
-    image: "/assets/projects/thumb1.png",
+    image: "/assets/projects/skillPerformanceBall.png",
     live: "",
     github:
       "https://github.com/UpekshaHerath/spin_ball_performace_tracking_app.git",
@@ -123,7 +123,17 @@ const projects = [
     stack: [{ name: "Next.js"}, { name: "Firebase"}, { name: "Arduino"}],
     image: "/assets/projects/vehicleTrackingSystem.png",
     live: "https://esp32-vehicle-tracking-system.vercel.app/",
-    github: "https://github.com/UpekshaHerath/esp32-vehicle-tracking-system",
+    github: "https://github.com/UpekshaHerath/esp32-vehicle-tracking-system"
+  }, 
+  {
+    num: "09",
+    category: "Test Automation Cypress",
+    title: "Project 9",
+    description: "Did automation testing for a frontend system and a backend API. Wrote test cases and automation scripts using Cypress and Cucumber and also report test report generation.",
+    stack: [{name: "Cypress"}, {name: "Cucumber"}, {name: "JavaScript"}, {name: "Java"}],
+    image: "/assets/projects/cypressAutomation.png",
+    live: "",
+    github: "https://github.com/hansajayathilaka/test-automation-cypress"
   }
 ];
 
