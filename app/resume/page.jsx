@@ -66,7 +66,7 @@ const experience = {
       company: "Rootcode Labs",
       link: "https://rootcode.io/",
       position: "Software Engineering Intern - full time",
-      duration: "2023 January - July",
+      duration: "2024 January - July",
       url: "/assets/resume/docs/Upeksha Herath.rootcode.pdf",
     },
     {
