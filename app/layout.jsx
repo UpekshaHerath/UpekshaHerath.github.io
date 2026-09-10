@@ -12,7 +12,13 @@ const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrainsMono",
 });
 
+// Vercel sets VERCEL_PROJECT_PRODUCTION_URL at build time (custom domain if assigned, else *.vercel.app)
+const siteUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
+  ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+  : "https://upeksha.me";
+
 export const metadata = {
+  metadataBase: new URL(siteUrl),
   title: "Upeksha Herath",
   description: "Undergraduate at University of Moratuwa. And an enthusiastic and talented Software Engineer.",
 };
