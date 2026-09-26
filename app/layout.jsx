@@ -8,7 +8,8 @@ import StairTransition from "@/components/StairTransition";
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
+  // no explicit weights: loads the single variable font file instead of one file per weight
+  display: "swap",
   variable: "--font-jetbrainsMono",
 });
 
@@ -19,8 +20,15 @@ const siteUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Upeksha Herath",
-  description: "Undergraduate at University of Moratuwa. And an enthusiastic and talented Software Engineer.",
+  title: "Upeksha Herath | Software Engineer",
+  description:
+    "Upeksha Herath - Software Engineer at Allion Technologies and University of Moratuwa IT graduate, building full-stack web, mobile and AI-powered products.",
+  openGraph: {
+    title: "Upeksha Herath | Software Engineer",
+    description:
+      "Software Engineer at Allion Technologies building full-stack web, mobile and AI-powered products.",
+    images: ["/assets/photo4.png"],
+  },
 };
 
 export default function RootLayout({ children }) {

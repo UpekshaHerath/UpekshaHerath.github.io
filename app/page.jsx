@@ -1,6 +1,7 @@
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { FiDownload } from "react-icons/fi";
 import { TypewriterDescription } from "@/components/TypeWriter";
+import { FiArrowRight } from "react-icons/fi";
 
 // components
 import Social from "@/components/Social";
@@ -14,31 +15,46 @@ const Home = () => {
         <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-24">
           {/* text */}
           <div className="text-center xl:text-left order-2 xl:order-none">
-            <span className="text-xl">
+            {/* availability */}
+            <div className="flex flex-wrap items-center justify-center xl:justify-start gap-3 mb-4 text-sm">
+              <span className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-3 py-1 text-accent">
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75"></span>
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-accent"></span>
+                </span>
+                Open to opportunities
+              </span>
+            </div>
+            {/* fixed height: the typewriter only renders text after hydration */}
+            <div className="text-xl h-[28px] leading-[28px]">
               <TypewriterDescription />
-            </span>
-            <h1 className="h1 text-[73px] mb-6">
+            </div>
+            <h1 className="h1 mb-6">
               Hello I'm <br />{" "}
               <span className="text-accent">Upeksha Herath</span>
             </h1>
-            <div className="flex flex-col xl:flex-row items-center gap-8">
-              <p className="max-w-[500px] mb-9 text-white/80">
-                I excited at developing Web and Mobile solutions which will add
-                value for my clients...
-              </p>
-            </div>
+            <p className="max-w-[540px] mb-9 text-white/80 mx-auto xl:mx-0">
+              Software Engineer at{" "}
+              <span className="text-white">Allion Technologies</span> and BSc
+              (Hons) IT graduate of the University of Moratuwa. I build
+              full-stack web and mobile products and AI-powered systems with
+              RAG, agents and MCP, and I write about tech as a content creator.
+            </p>
             {/* btn and socials */}
-            <div className="flex flex-col xl:flex-row items-center gap-8">
-              {/* <a href="/Upeksha Herath SE.pdf" download="Upeksha_Herath_SE">
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="uppercase flex items-center gap-2"
-                >
-                  <span>Download CV</span>
-                  <FiDownload className="text-xl" />
-                </Button>
-              </a> */}
+            <div className="flex flex-col items-center xl:items-start gap-8">
+              <div className="flex flex-wrap justify-center xl:justify-start items-center gap-4">
+                <Link href="/projects">
+                  <Button size="lg" className="flex items-center gap-2">
+                    <span>View my work</span>
+                    <FiArrowRight className="text-xl" />
+                  </Button>
+                </Link>
+                <Link href="/contact">
+                  <Button variant="outline" size="lg">
+                    Contact me
+                  </Button>
+                </Link>
+              </div>
               <div className="mb-8 xl:mb-0">
                 <Social
                   containerStyles="flex gap-6"

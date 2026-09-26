@@ -1,5 +1,3 @@
-"use client";
-
 import { BsArrowDownRight } from "react-icons/bs";
 import Link from "next/link";
 
@@ -8,45 +6,52 @@ const services = [
     num: "01",
     title: "Web Development",
     description:
-      "Develop pixel perfect front-ends and back-ends with latest technologies.",
+      "Full-stack web apps and SaaS products with Next.js, React, Angular, Spring Boot and Node.js, from pixel-perfect UI to scalable APIs.",
     href: "",
   },
   {
     num: "02",
-    title: "Mobile Development",
+    title: "AI & Agentic Systems",
     description:
-      "Develop pixel perfect cross-platform mobile applications with latest technologies.",
+      "AI features that deliver real value: RAG pipelines, AI agents, MCP servers and explainable ML, integrated into your product.",
     href: "",
   },
   {
     num: "03",
-    title: "Cloud - AWS",
+    title: "Mobile Development",
     description:
-      "Develop applications on top of AWS cloud services to scale your business.",
+      "Cross-platform and Android applications with React Native, built for great performance and user experience.",
     href: "",
   },
   {
     num: "04",
-    title: "SEO",
+    title: "Custom Software & Databases",
     description:
-      "Optimize your website to rank higher in search engines and drive more traffic.",
+      "Tailor-made applications and well-designed databases (MySQL, MongoDB) that fit your business workflows.",
     href: "",
-  }
+  },
+  {
+    num: "05",
+    title: "Cloud & DevOps",
+    description:
+      "Deploy and run applications on AWS (EC2, Lightsail), Linux and Kubernetes with Git-based workflows.",
+    href: "",
+  },
+  {
+    num: "06",
+    title: "Technical Writing",
+    description:
+      "Clear technical documentation, tutorials and articles, backed by two years as a technical writer at Enlear.",
+    href: "",
+  },
 ];
 
-import { motion } from "framer-motion";
 
 const Services = () => {
   return (
     <section className="min-h-[80vh] flex flex-col justify-center py-12 xl:py-0">
       <div className="container mx-auto">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{
-            opacity: 1,
-            transition: { delay: 2.4, duration: 0.4, ease: "easeIn" },
-          }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-[60px]"
+        <div className="animate-in fade-in duration-500 grid grid-cols-1 md:grid-cols-2 gap-[60px]"
         >
           {services.map((service, index) => {
             return (
@@ -67,7 +72,7 @@ const Services = () => {
                   </Link> */}
                 </div>
                 {/* title */}
-                <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500">
+                <h2 className="text-[32px] xl:text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500">
                   {service.title}
                 </h2>
                 {/* description */}
@@ -77,7 +82,7 @@ const Services = () => {
               </div>
             );
           })}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

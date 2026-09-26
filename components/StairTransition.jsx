@@ -1,32 +1,21 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
-import { usePathname } from "next/navigation";
-
 // components
 import Stairs from "./Stairs";
+import usePageChanged from "./usePageChanged";
 
 const StairTransition = () => {
-  const pathname = usePathname();
+  const { pathname, changed } = usePageChanged();
+  // skip on first load so content paints immediately; keying by pathname
+  // remounts the steps and replays the CSS animation on every navigation
+  if (!changed) return null;
   return (
-    <>
-      <AnimatePresence mode="wait">
-        <div key={pathname}>
-          <div className="h-screen w-screen fixed top-0 left-0 right-0 pointer-events-none z-40 flex">
-            <Stairs />
-          </div>
-
-          <motion.div
-            className="h-screen w-screen fixed bg-primary top-0 pointer-events-none"
-            inital={{ opacity: 1 }}
-            animate={{
-              opacity: 0,
-              transition: { delay: 1, duration: 0.4, ease: "easeInOut" },
-            }}
-          />
-        </div>
-      </AnimatePresence>
-    </>
+    <div
+      key={pathname}
+      className="h-screen w-screen fixed top-0 left-0 right-0 pointer-events-none z-40 flex overflow-hidden"
+    >
+      <Stairs />
+    </div>
   );
 };
 
