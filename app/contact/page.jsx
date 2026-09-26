@@ -9,7 +9,7 @@ import {
   sendToast,
   validateEmail,
   validateMobileNumber,
-} from "@/lib/utils";
+} from "@/lib/contact";
 import { Toaster } from "react-hot-toast";
 
 import {
@@ -42,7 +42,6 @@ const info = [
   },
 ];
 
-import { motion } from "framer-motion";
 
 const Contact = () => {
   const form = useRef();
@@ -58,8 +57,11 @@ const Contact = () => {
     message: "",
   });
 
-  const submitContactForm = (e) => {
+  const [isSending, setIsSending] = useState(false);
+
+  const submitContactForm = async (e) => {
     e.preventDefault();
+    if (isSending) return;
     if (!isEmailValidated && !isMobileNumberValidated) {
       sendToast("Invalid email", "error");
       sendToast("Invalid mobile number", "error");
@@ -71,7 +73,11 @@ const Contact = () => {
       sendToast("Invalid email", "error");
       return;
     }
-    if (sendEmail(form)) {
+    setIsSending(true);
+    const sent = await sendEmail(form);
+    setIsSending(false);
+    // keep what the visitor typed if sending failed
+    if (sent) {
       setFormData({
         firstName: "",
         lastName: "",
@@ -85,13 +91,7 @@ const Contact = () => {
   };
 
   return (
-    <motion.section
-      initial={{ opacity: 0 }}
-      animate={{
-        opacity: 1,
-        transition: { delay: 2.4, duration: 0.4, ease: "easeIn" },
-      }}
-      className="py-6"
+    <section className="animate-in fade-in duration-500 py-6"
     >
       <div className="container mx-auto">
         <div className="flex flex-col xl:flex-row gap-[30px]">
@@ -99,12 +99,12 @@ const Contact = () => {
             <form
               ref={form}
               onSubmit={(e) => submitContactForm(e)}
-              className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl"
+              className="flex flex-col gap-6 p-6 xl:p-10 bg-[#27272c] rounded-xl"
             >
-              <h3 className="text-4xl text-accent">Let's work together</h3>
+              <h3 className="text-3xl xl:text-4xl text-accent">Let's work together</h3>
               <p className="text-white/60">
-                If you need to contact me for any service feel free to contact
-                me. No worries, I'm a friendly guy. 🤩
+                Have a project, a role, or just want to talk tech? Drop me a
+                message and I'll get back to you soon. 🤩
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -187,6 +187,7 @@ const Contact = () => {
 
               <Select
                 name="service"
+                value={formData.service}
                 onValueChange={(value) =>
                   setFormData({
                     ...formData,
@@ -203,11 +204,20 @@ const Contact = () => {
                     <SelectItem value="web development">
                       Web Development
                     </SelectItem>
+                    <SelectItem value="ai and agentic systems">
+                      AI &amp; Agentic Systems
+                    </SelectItem>
                     <SelectItem value="mobile development">
                       Mobile Development
                     </SelectItem>
-                    <SelectItem value="content creation">
-                      Content Creation
+                    <SelectItem value="custom software">
+                      Custom Software &amp; Databases
+                    </SelectItem>
+                    <SelectItem value="technical writing">
+                      Technical Writing
+                    </SelectItem>
+                    <SelectItem value="job opportunity">
+                      Job Opportunity
                     </SelectItem>
                     <SelectItem value="other service">Other Service</SelectItem>
                     <SelectItem value="just to contact">
@@ -241,8 +251,12 @@ const Contact = () => {
               />
 
               <div className="flex">
-                <Button size="md" className="max-w-40">
-                  Send message
+                <Button
+                  size="md"
+                  className="max-w-40 disabled:opacity-60 disabled:cursor-not-allowed"
+                  disabled={isSending}
+                >
+                  {isSending ? "Sending..." : "Send message"}
                 </Button>
               </div>
             </form>
@@ -269,7 +283,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 };
 

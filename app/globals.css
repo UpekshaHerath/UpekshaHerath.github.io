@@ -23,3 +23,71 @@
     -webkit-text-stroke: 1px #00ff99;
   }
 }
+
+@layer components {
+  /* rotating dashed ring around the hero photo */
+  .photo-ring {
+    transform-box: fill-box;
+    transform-origin: center;
+    stroke-dasharray: 24 10 0 0;
+    animation: photo-ring 20s linear infinite alternate;
+  }
+}
+
+@keyframes photo-ring {
+  0% {
+    stroke-dasharray: 15 120 25 25;
+    transform: rotate(120deg);
+  }
+  50% {
+    stroke-dasharray: 16 25 92 72;
+  }
+  100% {
+    stroke-dasharray: 4 250 22 22;
+    transform: rotate(360deg);
+  }
+}
+
+/* page transition: each step rises to cover the screen, then drops away */
+.stair {
+  transform: translateY(100%);
+  animation: stair 0.8s ease-in-out both;
+  will-change: transform;
+}
+
+@keyframes stair {
+  0% {
+    transform: translateY(100%);
+  }
+  50% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.page-cover {
+  animation: page-cover 0.3s ease-in-out 0.6s both;
+}
+
+@keyframes page-cover {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .photo-ring,
+  .stair,
+  .page-cover {
+    animation: none;
+  }
+  .stair,
+  .page-cover {
+    display: none;
+  }
+}

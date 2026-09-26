@@ -6,7 +6,12 @@ export const TypewriterDescription = () => {
   return (
     <Typewriter
       options={{
-        strings: ["Software Engineer", "AWS Community Builder"],
+        strings: [
+          "Software Engineer @ Allion",
+          "Full-Stack Developer",
+          "AI & Agentic Systems Builder",
+          "Technical Content Creator",
+        ],
         autoStart: true,
         loop: true,
       }}

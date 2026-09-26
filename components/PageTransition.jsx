@@ -1,24 +1,17 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
-import { usePathname } from "next/navigation";
+import usePageChanged from "./usePageChanged";
 
 const PageTransition = ({ children }) => {
-  const pathname = usePathname();
+  const { pathname, changed } = usePageChanged();
   return (
-    <AnimatePresence>
-      <div key={pathname}>
-        <motion.div
-          initial={{ opacity: 1 }}
-          animate={{
-            opacity: 0,
-            transition: { delay: 1, duration: 0.4, ease: "easeInOut" },
-          }}
-          className="h-screen w-screen fixed bg-primary top-0 pointer-events-none"
-        />
-        {children}
-      </div>
-    </AnimatePresence>
+    <div key={pathname}>
+      {/* cover overlay only on page navigation, not on first load */}
+      {changed && (
+        <div className="page-cover h-screen w-screen fixed bg-primary top-0 pointer-events-none" />
+      )}
+      {children}
+    </div>
   );
 };
 
