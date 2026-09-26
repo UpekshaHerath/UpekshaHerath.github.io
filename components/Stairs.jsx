@@ -8,7 +8,7 @@ const Stairs = () => {
   return (
     <>
       {/* render 6 divs, each representing a step of the stairs.
-  Each step runs the same CSS animation (.stair in globals.css): it rises to cover
+  Each step runs the same CSS animation (.stair in globals.css): it starts covering
   the screen and then drops away. The delay is based on the reversed index,
   creating a staggered effect with decreasing delay for each subsequent step.
   */}

@@ -48,27 +48,26 @@
   }
 }
 
-/* page transition: each step rises to cover the screen, then drops away */
+/* page transition: steps start covering the screen, then drop away staggered */
 .stair {
-  transform: translateY(100%);
-  animation: stair 0.8s ease-in-out both;
+  transform: translateY(0%);
+  animation: stair 0.4s ease-in-out both;
   will-change: transform;
 }
 
 @keyframes stair {
-  0% {
-    transform: translateY(100%);
-  }
-  50% {
+  from {
     transform: translateY(0%);
   }
-  100% {
+  to {
     transform: translateY(100%);
   }
 }
 
+/* solid cover above page content (below the z-40 stairs) that fades once the steps are gone */
 .page-cover {
-  animation: page-cover 0.3s ease-in-out 0.6s both;
+  z-index: 30;
+  animation: page-cover 0.4s ease-in-out 0.8s both;
 }
 
 @keyframes page-cover {
